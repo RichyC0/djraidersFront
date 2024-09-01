@@ -1,1 +1,5 @@
-<p>navbar works!</p>
+<mat-toolbar class="mat-elevation-z3">
+  <button mat-icon-button (click) = "changeSignal()">
+    <mat-icon>{{collapsed ? 'arrow_forward' : 'arrow_back' }}</mat-icon>
+  </button>
+</mat-toolbar>

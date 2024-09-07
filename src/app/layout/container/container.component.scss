@@ -9,14 +9,19 @@
   overflow-x: scroll;
 }
 
-mat-sidenav-container{
+mat-sidenav-container {
   height: calc(100vh - 64px);
 }
 
 mat-sidenav {
+  height: 100vh;
   width: var(--sidebar-width);
+  transition: width 0.3s ease;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgb(00, 00, 00), rgb(00, 00, 00), rgb(42, 85, 132), rgb(00, 00, 00), rgb(0, 0, 0), rgb(00, 00, 00), rgb(0, 0, 0), rgb(0, 0, 0));
 }
 
 mat-sidenav-content {
   margin-left: var(--sidebar-width);
 }
+
+

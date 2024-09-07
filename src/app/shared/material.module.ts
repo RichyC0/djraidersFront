@@ -17,7 +17,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list'
+import { MatListModule } from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
 
 const material = [
   MatSlideToggleModule,
@@ -38,7 +39,8 @@ const material = [
   MatRadioModule,
   MatTooltipModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatDividerModule
 ];
 
 @NgModule({

@@ -1,0 +1,36 @@
+.table-container {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+mat-card {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  border-radius: 10px;
+  min-width: 400px;
+}
+
+.add-button-container {
+  width: 100%;
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.add-button {
+  box-shadow: none !important;
+  text-decoration: none;
+  color: white !important;
+  font-size: 17px;
+  margin-top: 7px;
+}

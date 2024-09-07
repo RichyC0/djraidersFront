@@ -1,4 +1,15 @@
 mat-nav-list a span[matline] {
-  color: gray;
   font-size: 0.9em;
+}
+
+mat-nav-list:hover {
+  color: #ED2D6B;
+}
+
+mat-list-item:hover {
+  color: #ED2D6B;
+}
+
+span {
+  color: white;
 }

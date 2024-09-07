@@ -1,0 +1,139 @@
+<div>
+  <form [formGroup]="formGroup">
+    <mat-accordion class="shadow-accordion">
+      <div class="title-container">
+        <span>
+          <h5>Crear Producto</h5>
+        </span>
+        <div class="button-close-div">
+          <button mat-button (click)="close()"><mat-icon>close</mat-icon></button>
+        </div>
+      </div>
+      <mat-divider class="mt-2"></mat-divider>
+      <mat-expansion-panel [expanded]="true" [disabled]="true" class="expansion-content">
+        <div class="form-group row" style="margin-top: 20px; margin-bottom: 20px" >
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="name">
+              <mat-error *ngIf="validateFields('name')">
+                {{ getErrors('name') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Precio</mat-label>
+              <input matInput formControlName="price">
+              <mat-error *ngIf="validateFields('price')">
+                {{ getErrors('price') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Color</mat-label>
+              <input matInput formControlName="color">
+              <mat-error *ngIf="validateFields('color')">
+                {{ getErrors('color') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Marca</mat-label>
+              <mat-select formControlName="brand_id">
+                <mat-option [value]="" disabled="true">--Seleccione--</mat-option>
+                <mat-option *ngFor="let brand of brands" [value]="brand.id">
+                  {{ brand.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('brand_id')">
+                {{ getErrors('brand_id') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Categoria</mat-label>
+              <mat-select formControlName="categoryId">
+                <mat-option [value]="" disabled="true">--Seleccione--</mat-option>
+                <mat-option *ngFor="let category of categories" [value]="category.uuid">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('categoryId')">
+                {{ getErrors('categoryId') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Talla</mat-label>
+              <mat-select formControlName="size_id">
+                <mat-option [value]="" disabled="true">--Seleccione--</mat-option>
+                <mat-option *ngFor="let size of sizes" [value]="size.id">
+                  {{ size.size }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('size_id')">
+                {{ getErrors('size_id') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Genero</mat-label>
+              <mat-select formControlName="sizeGender_id">
+                <mat-option [value]="" disabled="true">--Seleccione--</mat-option>
+                <mat-option *ngFor="let sizeGender of sizeGenders" [value]="sizeGender.id">
+                  {{ sizeGender.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('sizeGender_id')">
+                {{ getErrors('sizeGender_id') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12">
+            <mat-form-field appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea matInput formControlName="description" class="fixed-size-textarea"></textarea>
+              <mat-error *ngIf="validateFields('description')">
+                {{ getErrors('description') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="drag-container col-md-12">
+            <div class="image-preview-container" *ngIf="images.length > 0">
+              <div *ngFor="let image of images" class="image-preview">
+                <img [src]="image" alt="Imagen cargada">
+              </div>
+            </div>
+            <div class="drag-drop-container"
+              cdkDropList
+              (dragover)="onDragOver($event)"
+              (dragleave)="onDragLeave($event)"
+              (drop)="onDrop($event)"
+              (click)="fileInput.click()">
+              <div class="drag-drop-box">
+                <p>Arrastra y suelta tus imágenes aquí</p>
+                <mat-icon>cloud_upload</mat-icon>
+                <p>O</p>
+                <button mat-raised-button color="primary" type="button" >Carga tus imágenes</button>
+                <input type="file" #fileInput hidden (change)="onFileSelected($event)" accept="image/*" multiple>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 mt-4 d-flex justify-content-center align-items-center">
+            <div>
+              <button mat-raised-button color="primary" (click)="create()" type="submit">Crear</button>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+</div>

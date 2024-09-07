@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <mat-sidenav-container>
-  <mat-sidenav opened mode="side">
+  <mat-sidenav opened mode="side" [style.width.px] = "width">
     <app-sidebar></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content class="content" [style.margin-left]="width">

@@ -1,0 +1,85 @@
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: flex-end;
+  flex-grow: 0;
+}
+
+.mat-form-field {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  height: 55px;
+}
+
+.fixed-size-textarea {
+  resize: none;
+  /* Desactiva la capacidad de redimensionar */
+}
+
+mat-expansion-panel {
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-close-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shadow-accordion {
+  box-shadow: 4px rgba(0.4, 0.4, 0.4, 0.4); /* Aplica la sombra */
+  border-radius: 4px; /* Opcional: añade bordes redondeados */
+  overflow: hidden; /* Para evitar que los elementos hijos sobresalgan */
+}
+
+
+.drag-drop-container {
+  border: 2px dashed #3f51b5;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drag-drop-container:hover {
+  background-color: #f0f0f0;
+}
+
+.drag-drop-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.image-preview {
+  margin: 10px;
+}
+
+.image-preview img {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.drag-container {
+  margin-top: 15px;
+}
+
+
+
+
+

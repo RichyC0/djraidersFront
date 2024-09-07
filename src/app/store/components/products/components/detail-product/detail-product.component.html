@@ -1,0 +1,119 @@
+<div>
+  <form [formGroup]="formGroup">
+    <mat-accordion class="shadow-accordion">
+      <div class="title-container">
+        <span>
+          <h5>{{product ? product.name : '' | capitalize}}</h5>
+        </span>
+        <div class="button-close-div">
+          <button mat-button (click)="close()"><mat-icon>close</mat-icon></button>
+        </div>
+      </div>
+      <mat-divider class="mt-2"></mat-divider>
+      <mat-expansion-panel [expanded]="true" [disabled]="true">
+        <div class="form-group row" style="margin-top: 20px; margin-bottom: 20px">
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="name">
+              <mat-error *ngIf="validateFields('name')">
+                {{ getErrors('name') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Precio</mat-label>
+              <input matInput formControlName="price">
+              <mat-error *ngIf="validateFields('price')">
+                {{ getErrors('price') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Color</mat-label>
+              <input matInput formControlName="color">
+              <mat-error *ngIf="validateFields('color')">
+                {{ getErrors('color') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Estado</mat-label>
+              <input matInput formControlName="state">
+            </mat-form-field>
+            <mat-error *ngIf="validateFields('state')">
+              {{ getErrors('state') }}
+            </mat-error>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Marca</mat-label>
+              <mat-select formControlName="brand_id">
+                <mat-option *ngFor="let brand of brands" [value]="brand.id">
+                  {{ brand.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('brand_id')">
+                {{ getErrors('brand_id') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Categoria</mat-label>
+              <mat-select formControlName="categoryId">
+                <mat-option *ngFor="let category of categories" [value]="category.uuid">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('categoryId')">
+                {{ getErrors('categoryId') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Talla</mat-label>
+              <mat-select formControlName="size_id">
+                <mat-option *ngFor="let size of sizes" [value]="size.id">
+                  {{ size.size }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('size_id')">
+                {{ getErrors('size_id') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Genero</mat-label>
+              <mat-select formControlName="sizeGender_id">
+                <mat-option *ngFor="let sizeGender of sizeGenders" [value]="sizeGender.id">
+                  {{ sizeGender.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('sizeGender.id')">
+                {{ getErrors('sizeGender.id') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12">
+            <mat-form-field appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea matInput formControlName="description" class="fixed-size-textarea"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12 mt-4 d-flex justify-content-center align-items-center">
+            <div>
+              <button mat-raised-button color="primary" (click)="update()">Actualizar</button>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+</div>

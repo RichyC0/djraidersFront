@@ -1,0 +1,56 @@
+<div>
+  <form [formGroup]="formGroup">
+    <mat-accordion class="shadow-accordion">
+      <div class="title-container">
+        <span>
+          <h5>Crear Categoria</h5>
+        </span>
+        <div class="button-close-div">
+          <button mat-button (click)="close()"><mat-icon>close</mat-icon></button>
+        </div>
+      </div>
+      <mat-divider class="mt-2"></mat-divider>
+      <mat-expansion-panel [expanded]="true" [disabled]="true">
+        <div class="form-group row" style="margin-top: 20px; margin-bottom: 20px">
+          <div class="col-md-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="name">
+              <mat-error *ngIf="validateFields('name')">
+                {{ getErrors('name') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Tipo talla</mat-label>
+              <mat-select formControlName="sizeType_id">
+                <mat-option [value]="" disabled="true">--Seleccione--</mat-option>
+                <mat-option *ngFor="let sizeType of sizeTypes" [value]="sizeType.id">
+                  {{ sizeType.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="validateFields('sizeType_id')">
+                {{ getErrors('sizeType_id') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea matInput formControlName="description" class="fixed-size-textarea"></textarea>
+              <mat-error *ngIf="validateFields('description')">
+                {{ getErrors('description') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12 mt-4 d-flex justify-content-center align-items-center">
+            <div>
+              <button mat-raised-button color="primary" (click)="create()">Crear</button>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+</div>

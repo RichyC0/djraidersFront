@@ -11,7 +11,7 @@ export class SignalService {
   public signal$: Observable<boolean>;
 
   constructor() {
-    this.collapsed = false;
+    this.collapsed = true;
     this.signalSource = new BehaviorSubject(this.collapsed);
     this.signal$ = this.signalSource.asObservable();
    }

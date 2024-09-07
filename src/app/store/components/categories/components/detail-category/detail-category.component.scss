@@ -1,0 +1,37 @@
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: flex-end;
+  flex-grow: 0;
+}
+
+.mat-form-field {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  height: 55px;
+}
+
+.fixed-size-textarea {
+  resize: none;
+  /* Desactiva la capacidad de redimensionar */
+}
+
+mat-expansion-panel {
+  border-radius: 10px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-close-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shadow-accordion {
+  box-shadow: 4px rgba(0.4, 0.4, 0.4, 0.4); /* Aplica la sombra */
+  border-radius: 4px; /* Opcional: añade bordes redondeados */
+  overflow: hidden; /* Para evitar que los elementos hijos sobresalgan */
+}

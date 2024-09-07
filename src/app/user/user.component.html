@@ -1,0 +1,59 @@
+<mat-card>
+  <div style="width: 100%;">
+    <div class="add-button-container">
+      <!-- <button mat-raised-button color="primary" (click)="redirect()">
+        <div class="button-center">
+          <span>Ver categorias</span>
+          <mat-icon class="add-button">visibility</mat-icon>
+        </div>
+      </button> -->
+      <button mat-raised-button color="primary" (click)="createUser()">
+        <div class="button-center">
+          <mat-icon class="add-button">add</mat-icon>
+        </div>
+      </button>
+    </div>
+    <div class="table-container">
+      <table mat-table [dataSource]="users" class="mat-elevation-z8">
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef> Primer Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName | capitalize}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> Primer Apellido </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName | capitalize}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="documentNumber">
+          <th mat-header-cell *matHeaderCellDef> Número de Documento </th>
+          <td mat-cell *matCellDef="let element"> {{element.documentNumber | capitalize}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="changePassword">
+          <th mat-header-cell *matHeaderCellDef> Cambio Contraseña </th>
+          <td mat-cell *matCellDef="let element"> {{!!element.changePassword ? 'Requiere': 'No Requiere' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef> Rol </th>
+          <td mat-cell *matCellDef="let element"> {{element.role }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element" class="btn-hover">
+            <button mat-icon-button id="btn-view" (click)="viewUser(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="keys"></tr>
+        <tr mat-row *matRowDef="let row; columns: keys;"></tr>
+      </table>
+    </div>
+  </div>
+
+
+</mat-card>
